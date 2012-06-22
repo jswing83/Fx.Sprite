@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+	<title>Fx.Sprite</title>
+	
+	<style type="text/css">
+	@media all {
+		#smile {
+			background: url(gfx/emo_smile_64.png) no-repeat 0 0;
+			display: inline-block;
+			height: 64px;
+			margin: 25px;
+			width: 64px;
+		}
+		#phone {
+			background: url(gfx/phone.jpg) no-repeat 0 0;
+			height: 500px;
+			margin: 25px;
+			width: 380px;
+		}
+		#loop {
+			background: url(gfx/arrow_loop.png) no-repeat 0 0;
+			display: inline-block;
+			height: 28px;
+			margin: 25px;
+			width: 28px;
+		}
+		#hour {
+			background: url(gfx/hourglass.png) no-repeat 0 0;
+			display: inline-block;
+			height: 154px;
+			margin: 25px;
+			width: 154px;
+		}
+		.arrow {
+			background: url(gfx/arrows.png) no-repeat 0 0;
+			display: inline-block;
+			height: 28px;
+			margin: 25px;
+			width: 28px;
+		}
+		#a2 {
+			background-position: -28px 0;
+		}
+		#a3 {
+			background-position: -56px 0;
+		}
+		#a4 {
+			background-position: -84px -560px;
+		}
+		img {
+			border: 1px solid gray;
+		}
+	}
+	</style>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools.js" type="text/javascript"></script>
+	<script src="../Source/Fx.Sprite.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+	document.addEvent('domready', function() {
+
+		new Fx.Sprite($('a1'), {
+			axis: 'y',
+			duration: 4500,
+			sFrames: 25,
+			size: {
+				x: 28,
+				y: 28
+			},
+			transition: Fx.Transitions.Back.easeOut
+		});
+		
+		new Fx.Sprite($('a2'), {
+			axis: 'y',
+			duration: 1500,
+			sFrames: 25,
+			position: {
+				x: -28,
+				y: 0
+			},
+			size: {
+				x: 28,
+				y: 28
+			},
+			transition: Fx.Transitions.Bounce.easeOut
+		});
+
+		new Fx.Sprite($('a3'), {
+			axis: 'y',
+			duration: 1000,
+			sFrames: 25,
+			position: {
+				x: -56,
+				y: 0
+			},
+			size: {
+				x: 28,
+				y: 28
+			},
+			transition: Fx.Transitions.Quad.easeIn
+		});
+
+		new Fx.Sprite($('a4'), {
+			axis: 'y',
+			curSFrame: 20,
+			duration: 1500,
+			sFrames: 25,
+			position: {
+				x: -84,
+				y: 0
+			},
+			size: {
+				x: 28,
+				y: 28
+			},
+			transition: Fx.Transitions.Back.easeInOut
+		});
+
+		new Fx.Sprite($('smile'), {
+			sFrames: 11,
+			duration: 1500,
+			size: {
+				x: 64,
+				y: 64
+			},
+			transition: Fx.Transitions.Elastic.easeIn
+		});
+		
+		new Fx.Sprite($('phone'), {
+			axis: 'y',
+			sFrames: 36,
+			duration: 3000,
+			loop: true,
+			size: {
+				x: 380,
+				y: 500
+			},
+			transition: Fx.Transitions.Elastic.easeInOut
+		});
+		
+		new Fx.Sprite($('loop'), {
+			axis: 'y',
+			sFrames: 48,
+			duration: 1500,
+			loop: true,
+			size: {
+				x: 28,
+				y: 28
+			},
+			transition: Fx.Transitions.Back.easeInOut
+		});
+		
+		new Fx.Sprite($('hour'), {
+			sFrames: 12,
+			duration: 5000,
+			loop: true,
+			size: {
+				x: 154,
+				y: 154
+			}
+		});
+
+		$$('.arrow, #smile, #loop').addEvent('click', function(e) {
+			this.retrieve('Fx.Sprite').toggle();
+		});
+		
+		$$('#phone, #hour').addEvent('click', function(e) {
+			this.retrieve('Fx.Sprite').loopForward();
+		});
+
+	});
+	</script>
+	
+</head>
+<body>
+	<div class="arrow" id="a1"></div>
+	<div class="arrow" id="a2"></div>
+	<div class="arrow" id="a3"></div>
+	<div class="arrow" id="a4"></div>
+	<div id="loop"></div>
+	<div id="smile"></div>
+	<div id="hour"></div>
+	<div id="phone"></div>
+	<p>Click the images above.</p><br/>
+	<p>here are the actual images</p>
+	<img src="gfx/arrows.png"/><br/>
+	<img src="gfx/emo_smile_64.png"/><br/>
+	<img src="gfx/phone.jpg"/><br/>
+	<img src="gfx/arrow_loop.png"/>
+	
+	<p>credit to Google for the Galaxy Nexus phone</p>
+</body>
+</html>
