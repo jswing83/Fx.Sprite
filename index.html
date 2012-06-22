@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Fx.Sprite by jswing83</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Fx.Sprite</h1>
+        <h2>Animate Image Sprites</h2>
+        <a href="https://github.com/jswing83/Fx.Sprite" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>Fx.Sprite</h1>
+
+<p>Animate image sprites frame by frame.</p>
+
+<p>definition -- image sprite: an image containing sub images (or frames)</p>
+
+<p>This is useful for animating image sprites. Fx.CSS can scroll through the sprites pixel by pixel but Fx.Sprite will move through the sprite frame by frame similar to a film strip.  This can also be used to create spinners (waiting animations).</p>
+
+<p>demo: <a href="http://jsfiddle.net/jswing83/SSXmw/">http://jsfiddle.net/jswing83/SSXmw/</a></p>
+
+<h2>Notes for Understanding</h2>
+
+<p>To avoid conflict with the base Fx class, anytime the code refers to a <code>frame</code>, I use <code>sFrame</code> (sprite frame) instead.</p>
+
+<h2>How to use</h2>
+
+<p>Using this image as a sample:</p>
+
+<p><img src="https://github.com/jswing83/Fx.Sprite/raw/master/Demo/gfx/emo_smile_64.png" alt="Screenshot"></p>
+
+<p>Image information:</p>
+
+<ol>
+<li>size: 704x64</li>
+<li>frames: 11</li>
+<li>frame size: 64x64</li>
+</ol><pre><code>#HTML
+&lt;div id="mySprite"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code>#CSS
+#mySprite {
+    background-image: url(../path_to_images/emo_smile_64.png) no-repeat 0 0;
+    height: 64px;
+    width: 64px;
+}
+</code></pre>
+
+<p>This CSS sets the div to the size of a single frame. Only the first smiley face will be visible.</p>
+
+<pre><code>#JS
+new Fx.Sprite('mySprite', {
+    sFrames: 11,
+    size: {
+        x: 64,
+        y: 64
+    }
+});
+</code></pre>
+
+<p>After creating the Fx.Sprite object, it can be accessed through a variable reference or through the element's storage.</p>
+
+<pre><code>#JS
+
+// variable reference
+var sp = new Fx.Sprite('mySprite', {...});
+sp.toggle();
+
+//element's storage
+new Fx.Sprite('mySprite', {...});
+$('mySprite').retrieve('Fx.Sprite').toggle();
+</code></pre>
+
+<h2>Options</h2>
+
+<p>Includes all options for Fx class plus:</p>
+
+<ol>
+<li>axis - (string, optional, default: x) using the standard x/y grid system, are your frames arranged along the <code>x</code> or <code>y</code> axis?</li>
+<li>curSFrame - (number, optional, default: 0) if you use CSS background-position to start on a frame other than the first, specify it here. first frame = 0, last frame = array.length - 1</li>
+<li>loop - (boolean, optional, default: false) is the first/last frame a continuation of the series?</li>
+<li>position - (object, optional, default: {x:0, y:0}) position of the first frame of your animation, allows for serveral sprited animations in one image <br><br> in the image below, you would set the position to <code>{x:84, y:0}</code> to animate the red arrow (each frame is 28x28) <br><img src="https://github.com/jswing83/Fx.Sprite/raw/master/Demo/gfx/sample.png" alt="Screenshot"><br><br>
+</li>
+<li>sFrames - (number, optional, default: 10) total number of frames</li>
+<li>size - (object, optional, default: {x:18, y:18}) size of each frame, not the full image, all frames must be the same size</li>
+</ol><h2>Methods</h2>
+
+<ol>
+<li>set(frame) - specify the frame to jump straight to</li>
+<li>go(frame) - specify the frame to animate to</li>
+<li>first - animate to the first frame from the current frame</li>
+<li>last - animate to the last frame from the current frame</li>
+<li>next - jump straight to next frame</li>
+<li>prev - jump straight ot previous frame</li>
+<li>toggle - sets the animation in motion, determines whether to go forward or backward based on its previous direction, on the first call to toggle the current frame number is compared to the total number of frames divided by two</li>
+<li>loopForward(times) - loops the animation indefinitely when <code>times = 0</code> or <code>times = null</code>, loops the animation the number number of <code>times</code> specified</li>
+<li>loopBackward(times) - same as loopForward but in reverse (coming soon)</li>
+<li>loopReverse(times) - same as loopForward but animation direction reverses on each loop (coming soon)</li>
+</ol><h2>Known Bugs</h2>
+
+<ol>
+<li>Toggling the animation when option:loop = true (also affects the looping methods)</li>
+</ol>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/jswing83/Fx.Sprite/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/jswing83/Fx.Sprite/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jswing83/Fx.Sprite"></a> is maintained by <a href="https://github.com/jswing83">jswing83</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
