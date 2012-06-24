@@ -12,16 +12,16 @@ license: MIT-style
 
 authors:
  - Jason Swing
-  
+
+provides:
+- Fx.Sprite
+ 
 requires:
   core/1.3.2:
   - Class.Extras
   - Element.Event
   - Element.Style
   - Fx.Transitions
-
-provides:
- - Fx.Sprite
 
 ...
 */
