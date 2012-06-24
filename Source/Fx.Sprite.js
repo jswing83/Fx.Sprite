@@ -17,6 +17,8 @@ requires: [core/1.3.2: [Class.Extras, Element.Event, Element.Style, Fx.Transitio
 
 provides: [Fx.Sprite]
 
+copyright: "&copy; Jason Swing"
+
 ...
 */
 
