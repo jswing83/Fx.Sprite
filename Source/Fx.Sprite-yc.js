@@ -14,11 +14,12 @@ authors:
  - Jason Swing
   
 requires:
-  core/1.3.2: 
-  - Class.Extras
-  - Element.Event
-  - Element.Style
-  - Fx.Transitions
+  core/1.3.2: [
+    Class.Extras,
+    Element.Event,
+    Element.Style,
+    Fx.Transitions
+  ]
 
 provides: [Fx.Sprite]
 
