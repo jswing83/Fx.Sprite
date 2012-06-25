@@ -3,15 +3,14 @@
 
 name: Fx.Sprite
 
-description: 
+description:
  Animate Image Sprites by Frame
  This is useful for animating image sprites. Fx.CSS can scroll through the sprites pixel by pixel but Fx.Sprite will move through the sprite frame by frame similarto a film strip.
  demo -- http://jsfiddle.net/jswing83/SSXmw/
 
 license: MIT-style
 
-authors:
- - Jason Swing
+authors: [Jason Swing]
 
 requires: [core/1.3.2: [Class.Extras, Element.Event, Element.Style, Fx.Transitions]]
 
